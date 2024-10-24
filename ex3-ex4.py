@@ -258,7 +258,7 @@ adjA_df = pd.DataFrame(adjA)
 print("The adjoint of Matrix A is:")
 print(adjA_df)
 
-#(c)  x = b^t*A^(-1)
+#(c)  x = A^(-1)*b^t
 
 b=np.array([1,1,1,1])
 x=invA@b.T
@@ -281,7 +281,7 @@ if np.any(np.isclose(eigenvalues_cleaned, 0)):
     print("The matrix is not invertible (has zero eigenvalue). Using pseudo-inverse.")
     C_inv = np.linalg.inv(eigenvectors_cleaned)  # Use pseudo-inverse if singular
 else:
-    C_inv = np.linalg.inv(eigenvectors_cleaned)    # the inverse if not singular therefore impossible to calculate the inverse
+    C_inv = np.linalg.inv(eigenvectors_cleaned)    # the inverse if not singular therefore impossible to calculate the inverse even with the "pseudo-inverse"
 
 # Step 5: Create diagonal matrix of eigenvalues (Lambda)
 D = np.diag(eigenvalues_cleaned)
